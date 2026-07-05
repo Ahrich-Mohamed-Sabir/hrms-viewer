@@ -1,0 +1,27 @@
+{
+  "name": "hrms-viewer",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host",
+    "build": "vite build",
+    "preview": "vite preview",
+    "server": "node server.js",
+    "start": "npm run build && node server.js",
+    "prebake": "node scripts/prebake.js",
+    "build:static": "npm run prebake && cross-env VITE_BASE=/hrms-viewer/ vite build",
+    "deploy": "npm run build:static && gh-pages -d dist"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "highlight.js": "^11.11.1",
+    "vue": "^3.5.39"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.7",
+    "cross-env": "^7.0.3",
+    "gh-pages": "^6.3.0",
+    "vite": "^8.1.1"
+  }
+}
